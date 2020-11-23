@@ -83,12 +83,17 @@ for (var i=0; i<(maxNumber-16) && keepPlaying; i++){
     //Continuo a chiedere un numero all'utente se lo ha già inserito o se inserisce un NaN
     do{
         var numeroRipetuto = false;
+        var outOfBoundNumber = false;
         numeroInput = parseInt( prompt("Inserisci un numero fra 1 e " + maxNumber) );
         if(isInSequence(numeriUtente, numeroInput)){
             numeroRipetuto = true;
             alert("Attenzione! Hai già inserito il numero " + numeroInput + ". Scegli un altro numero")
         }
-    } while(isNaN(numeroInput) || numeroRipetuto);
+        if(numeroInput < 1 || numeroInput > maxNumber){
+            outOfBoundNumber = true;
+            alert("Attenzione! Hai inserito un numero non valido! Puoi inserire solo numeri fra 1 e " + maxNumber);
+        }
+    } while(isNaN(numeroInput) || numeroRipetuto || outOfBoundNumber);
     //Inserisco il numero casuale non ripetuto nell'array numeriUtente
     numeriUtente.push(numeroInput);
 
@@ -101,11 +106,12 @@ for (var i=0; i<(maxNumber-16) && keepPlaying; i++){
         console.log("Il numero " + numeroInput + " non era un numero esplosivo! Complimenti!");
     }
 }
-console.log("I numeri che hai inserito sono: ");
-console.log(numeriUtente);
 
 if(numeriUtente.length == (maxNumber-16) ){
     console.log("Hai totalizzato il punteggio massimo che è di: " + punteggio + " punti!");
 } else {
     console.log("Hai totalizzato: " + punteggio + " punti!");
 }
+
+console.log("I numeri esplosivi erano: ");
+console.log(numeriEsplosivi);
