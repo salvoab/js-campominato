@@ -28,22 +28,25 @@ function isInSequence(sequence, item){
     return false;
 }
 
-//TO-DO possibile funzione che genera l'array di numeri esplosivi
+function getRandomExplosiveNumbers(sequence, maxValue, sequenceLength){
+    for (var i=0; i<sequenceLength; i++){
+        var numeroCasuale;
+        //continuo a generare un numero casuale fino a generare un numero che non è già presente in sequence
+        do{
+            numeroCasuale = getRandomIntegerMinMax(1, maxValue);
+        } while(isInSequence(sequence, numeroCasuale));
+        //Inserisco il numero casuale non ripetuto nell'array sequence
+        sequence.push(numeroCasuale);
+    }
+
+    return sequence;
+}
+
 //Il computer deve generare 16 numeri casuali tra 1 e 100. I numeri non possono essere duplicati.
 var numeriEsplosivi = [];
 var maxNumber = 100;
-for (var i=0; i<16; i++){
-    var numeroCasuale;
-    //continuo a generare un numero casuale fino a generare un numero che non è già presente in numeriEsplosivi
-    do{
-        numeroCasuale = getRandomIntegerMinMax(1, maxNumber);
-        //test
-        //console.log(numeroCasuale);
-    } while(isInSequence(numeriEsplosivi, numeroCasuale));
-    //Inserisco il numero casuale non ripetuto nell'array numeriEsplosivi
-    numeriEsplosivi.push(numeroCasuale);
-}
 //test
+numeriEsplosivi = getRandomExplosiveNumbers(numeriEsplosivi, maxNumber, 16);
 console.log(numeriEsplosivi);
 
 //Chiedere all’utente (100 - 16) volte di inserire un numero alla volta, sempre compreso tra 1 e 100. L’utente non può inserire più volte lo stesso numero.
@@ -73,4 +76,11 @@ for (var i=0; i<10 && keepPlaying; i++){
 console.log("I numeri che hai inserito sono: ");
 console.log(numeriUtente);
 
-console.log("Hai totalizzato: " + punteggio + " punti!");
+if(numeriUtente.length == (maxNumber - 16)){
+    //se esco dal ciclo for perché non ho mai sbagliato, l'ultimo incremento di punteggio non viene effettuato
+    punteggio++;
+    console.log("Hai totalizzato il punteggio massimo che è di: " + punteggio + " punti!");
+
+} else{
+    console.log("Hai totalizzato: " + punteggio + " punti!");
+}
