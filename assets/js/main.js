@@ -45,17 +45,16 @@ function getRandomExplosiveNumbers(sequence, maxValue, sequenceLength){
 //Il computer deve generare 16 numeri casuali tra 1 e 100. I numeri non possono essere duplicati.
 var numeriEsplosivi = [];
 var maxNumber = 100;
-//test
 numeriEsplosivi = getRandomExplosiveNumbers(numeriEsplosivi, maxNumber, 16);
-console.log(numeriEsplosivi);
+//test
+//console.log(numeriEsplosivi);
 
 //Chiedere all’utente (100 - 16) volte di inserire un numero alla volta, sempre compreso tra 1 e 100. L’utente non può inserire più volte lo stesso numero.
 var numeriUtente = [];
 var punteggio = 0;
 var keepPlaying = true;
-//TO-DO possibile funzione play che restituisce il punteggio
-//Inserisco 10 valori per provare il programma TO-DO cambiare il 10 con maxNumber-16
-for (var i=0; i<10 && keepPlaying; i++){
+
+for (var i=0; i<(maxNumber-16) && keepPlaying; i++){
     var numeroInput;
     //Continuo a chiedere un numero all'utente se lo ha già inserito o se inserisce un NaN
     do{
@@ -76,11 +75,8 @@ for (var i=0; i<10 && keepPlaying; i++){
 console.log("I numeri che hai inserito sono: ");
 console.log(numeriUtente);
 
-if(numeriUtente.length == (maxNumber - 16)){
-    //se esco dal ciclo for perché non ho mai sbagliato, l'ultimo incremento di punteggio non viene effettuato
-    punteggio++;
+if(numeriUtente.length == (maxNumber-16) ){
     console.log("Hai totalizzato il punteggio massimo che è di: " + punteggio + " punti!");
-
-} else{
+} else {
     console.log("Hai totalizzato: " + punteggio + " punti!");
 }
