@@ -48,9 +48,29 @@ function getRandomExplosiveNumbers(sequence, maxValue, sequenceLength){
     return sequence;
 }
 
+//Inizio bonus
+var maxNumber;
+do{
+    var inputImprevisto = false;
+    var difficolta = prompt("Scegli un livello di difficoltà: [0 - facile; 1 - medio; 2 - difficile]");
+    switch(difficolta){
+        case "0":
+            maxNumber = 100;
+            break;
+        case "1":
+            maxNumber = 80;
+            break;
+        case "2":
+            maxNumber = 50;
+            break;
+        default:
+            inputImprevisto = true;
+            alert("Attenzione! Puoi selezionare solo le difficoltà 0 per facile; 1 per media; 2 per difficile");
+    }
+}while(inputImprevisto);
+
 //Il computer deve generare 16 numeri casuali tra 1 e maxNumber dipendente dalla difficoltà. I numeri non possono essere duplicati.
 var numeriEsplosivi = [];
-var maxNumber = 100;
 numeriEsplosivi = getRandomExplosiveNumbers(numeriEsplosivi, maxNumber, 16);
 
 //Chiedere all’utente (maxNumber - 16) volte di inserire un numero alla volta, sempre compreso tra 1 e 100. L’utente non può inserire più volte lo stesso numero.
