@@ -28,18 +28,49 @@ function isInSequence(sequence, item){
     return false;
 }
 
-
-var numeriEsplosivi =[];
+//TO-DO possibile funzione che genera l'array di numeri esplosivi
+//Il computer deve generare 16 numeri casuali tra 1 e 100. I numeri non possono essere duplicati.
+var numeriEsplosivi = [];
+var maxNumber = 100;
 for (var i=0; i<16; i++){
     var numeroCasuale;
     //continuo a generare un numero casuale fino a generare un numero che non è già presente in numeriEsplosivi
     do{
-        numeroCasuale = getRandomIntegerMinMax(1,100);
+        numeroCasuale = getRandomIntegerMinMax(1, maxNumber);
         //test
-        console.log(numeroCasuale);
+        //console.log(numeroCasuale);
     } while(isInSequence(numeriEsplosivi, numeroCasuale));
     //Inserisco il numero casuale non ripetuto nell'array numeriEsplosivi
     numeriEsplosivi.push(numeroCasuale);
 }
 //test
 console.log(numeriEsplosivi);
+
+//Chiedere all’utente (100 - 16) volte di inserire un numero alla volta, sempre compreso tra 1 e 100. L’utente non può inserire più volte lo stesso numero.
+var numeriUtente = [];
+var punteggio = 0;
+var keepPlaying = true;
+//TO-DO possibile funzione play che restituisce il punteggio
+//Inserisco 10 valori per provare il programma TO-DO cambiare il 10 con maxNumber-16
+for (var i=0; i<10 && keepPlaying; i++){
+    var numeroInput;
+    //Continuo a chiedere un numero all'utente se lo ha già inserito o se inserisce un NaN
+    do{
+        numeroInput = parseInt( prompt("Inserisci un numero fra 1 e 100") );
+    } while(isNaN(numeroInput) || isInSequence(numeriUtente, numeroInput));
+    //Inserisco il numero casuale non ripetuto nell'array numeriUtente
+    numeriUtente.push(numeroInput);
+
+    if(isInSequence(numeriEsplosivi, numeroInput)){
+        keepPlaying = false;
+        console.log("Il numero " + numeroInput + " era un numero esplosivo! Sei Esploso!");
+    } else{
+        keepPlaying = true;
+        punteggio++;
+        console.log("Il numero " + numeroInput + " non era un numero esplosivo! Complimenti!");
+    }
+}
+console.log("I numeri che hai inserito sono: ");
+console.log(numeriUtente);
+
+console.log("Hai totalizzato: " + punteggio + " punti!");
