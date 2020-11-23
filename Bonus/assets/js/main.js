@@ -113,5 +113,4 @@ if(numeriUtente.length == (maxNumber-16) ){
     console.log("Hai totalizzato: " + punteggio + " punti!");
 }
 
-console.log("I numeri esplosivi erano: ");
-console.log(numeriEsplosivi);
+console.log("I numeri esplosivi erano: [" + numeriEsplosivi + "]");
