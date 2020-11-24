@@ -1,0 +1,59 @@
+p{
+    font-size: 1.4rem;
+}
+
+#contenitore{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#contenitore div{
+    width: 50px;
+    height: 50px;
+    margin: 6px;
+    padding: 6px;
+    font-size: 2.6rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+}
+
+.number{
+    background-color: grey;
+}
+
+.explosion{
+    color: black !important;
+    /*background-image: url("https://pbs.twimg.com/profile_images/713739794652786689/ONtVvHt3_400x400.jpg");*/
+    background-image: url("../img/explosion.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.safe{
+    background-color: blue !important;
+    /*background-image: url("https://static.wixstatic.com/media/ab7384_83bc978d1de4434794acc05edc3dc45d~mv2.png/v1/fit/w_256%2Ch_256%2Cal_c%2Cq_80/file.png");*/
+    background-image: url("../img/flag.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.show-safe{
+    background-color: green !important;
+}
+
+.show-explosion{
+    /*background-image: url("https://lh3.googleusercontent.com/proxy/0f3q-w-3-Is6X0QsIxtvmeZAyqOpnO5qpbqnRS1ywlyoPdqyJur93WLol4Re7eEXOLSzTQGwg8S-TtYZFUwAcoVlPkVy_R0rewt3e1zSatfTUnNA3cs6OBl-BAY");*/
+    background-image: url("../img/mine.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#risultato{
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 2rem;
+}
