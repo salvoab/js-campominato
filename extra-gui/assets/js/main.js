@@ -96,8 +96,8 @@ function startGame(maxNumber, numeriEsplosivi){
         elements[i].addEventListener("click", function(){
             if(!gameOver){
                 var numero = Number(this.innerHTML);
+                //Nota personale: uso il metodo includes che è equivalente alla mia funzione isInSequence, solo per ricordarmi della sua esistenza
                 if(!numeriScelti.includes(numero)){
-                    console.log("Cliccato su div numero: " + numero);
                     numeriScelti.push(numero);
                     if(numeriEsplosivi.includes(numero)){
                         this.classList.add("explosion");
