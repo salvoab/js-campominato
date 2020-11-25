@@ -30,7 +30,7 @@ function getRandomIntegerMinMax(min, max){
  * 
  * @param {array} sequence The array to check.
  * @param {number} item    The number to search for.
- * @return {boolean}  true il item is in the sequence, false otherwise.
+ * @return {boolean}  true if item is in the sequence, false otherwise.
  * */
 function isInSequence(sequence, item){
     for(var i=0; i<sequence.length; i++){
