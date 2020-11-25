@@ -19,6 +19,13 @@ function getRandomIntegerMinMax(min, max){
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+/**
+ * Check if an item is contained into an array.
+ * 
+ * @param {array} sequence The array to check.
+ * @param {number} item    The number to search for.
+ * @return {boolean}  true il item is in the sequence, false otherwise.
+ * */
 function isInSequence(sequence, item){
     for(var i=0; i<sequence.length; i++){
         if(sequence[i] === item){
@@ -28,12 +35,21 @@ function isInSequence(sequence, item){
     return false;
 }
 
-function getRandomExplosiveNumbers(sequence, maxValue, sequenceLength){
+/**
+ * Generates an array of random numbers between a minValue and a maxValue. 
+ * 
+ * @param {number} minValue The minimum value in the array.
+ * @param {number} maxValue The maximum value in the array.
+ * @param {number} sequenceLength Number of elements to generate inside the array.
+ * @return {array} - The array of generated numbers.
+ */
+function getRandomExplosiveNumbers(minValue, maxValue, sequenceLength){
+    var sequence = [];
     for (var i=0; i<sequenceLength; i++){
         var numeroCasuale;
         //continuo a generare un numero casuale fino a generare un numero che non è già presente in sequence
         do{
-            numeroCasuale = getRandomIntegerMinMax(1, maxValue);
+            numeroCasuale = getRandomIntegerMinMax(minValue, maxValue);
         } while(isInSequence(sequence, numeroCasuale));
         //Inserisco il numero casuale non ripetuto nell'array sequence
         sequence.push(numeroCasuale);
@@ -45,7 +61,7 @@ function getRandomExplosiveNumbers(sequence, maxValue, sequenceLength){
 //Il computer deve generare 16 numeri casuali tra 1 e 100. I numeri non possono essere duplicati.
 var numeriEsplosivi = [];
 var maxNumber = 100;
-numeriEsplosivi = getRandomExplosiveNumbers(numeriEsplosivi, maxNumber, 16);
+numeriEsplosivi = getRandomExplosiveNumbers(1, maxNumber, 16);
 //test
 //console.log(numeriEsplosivi);
 
